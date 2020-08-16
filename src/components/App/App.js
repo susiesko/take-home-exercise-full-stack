@@ -32,6 +32,10 @@ class App extends React.Component {
     });
   }
 
+  addTeamMember = (teamMember) => {
+    console.log(teamMember);
+  };
+
   render() {
     if (this.state.loading) {
       return <h1>Loading...</h1>;
@@ -51,7 +55,7 @@ class App extends React.Component {
           />
         ))}
         {/* Make this new team member link to your form! */}
-        <TeamMember id="new" name="Join us!" title="New Teammate" />
+        <TeamMember id="new" name="Join us!" new="1" title="New Teammate" addTeamMember={this.addTeamMember}/>
       </div>
     );
   }

@@ -18,6 +18,27 @@ class TeamMember extends React.PureComponent {
     favoriteColor: '#3466F2'
   };
 
+  renderTeamMemberName = (name) => {
+    if (name == 'Join us!'){
+      return (
+        <button className="btn" onClick={this.createTeamMember}>{name}</button>
+      );
+    }
+
+    return (
+      <h1 className="name">{name}</h1>
+    );
+  }
+
+  createTeamMember = (event) => {
+    const newTeamMember = {
+      name: 'susie',
+      desc: 'hello world'
+    };
+
+    this.props.addTeamMember(newTeamMember);
+  }
+
   render() {
     return (
       <div className="container">
@@ -30,7 +51,7 @@ class TeamMember extends React.PureComponent {
             />
           </div>
           <h2 className="title">{this.props.title}</h2>
-          <h1 className="name">{this.props.name}</h1>
+          { this.renderTeamMemberName(this.props.name) }          
         </header>
         <div className="body">{this.props.story}</div>
         <footer style={{ backgroundColor: this.props.favoriteColor }}>
