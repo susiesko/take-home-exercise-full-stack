@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TeamMember.css';
 import MatterEmptyAvatar from '../../assets/matter_empty_avatar.svg';
+import TeamMemberForm from '../TeamMemberForm';
 
 class TeamMember extends React.PureComponent {
   static propTypes = {
@@ -18,17 +19,24 @@ class TeamMember extends React.PureComponent {
     favoriteColor: '#3466F2'
   };
 
-  renderTeamMemberName = (name) => {
-    if (name == 'Join us!'){
-      return (
-        <button className="btn" onClick={this.createTeamMember}>{name}</button>
-      );
-    }
+  constructor(props){
+    super(props);
 
+    this.state = {
+      showNewTeamMemberForm: false,
+      teamMemberColor: props.favoriteColor
+    }    
+  };
+
+  renderTeamMemberName = (name) => {
     return (
+      name === 'Join us!' 
+      ? 
+      <button className="newTeamMemberBtn" style={{backgroundColor: this.props.favoriteColor }} onClick={this.handleJoinUsClick}>{name}</button> 
+      :
       <h1 className="name">{name}</h1>
     );
-  }
+  };
 
   createTeamMember = (event) => {
     const newTeamMember = {
@@ -37,7 +45,19 @@ class TeamMember extends React.PureComponent {
     };
 
     this.props.addTeamMember(newTeamMember);
+  };
+
+  updateTeamMemberColor = (colorVal) => {
+    this.setState({ teamMemberColor: colorVal });
   }
+
+  handleJoinUsClick = (event) => {
+    this.setState({ showNewTeamMemberForm: true });
+  };
+
+  handleCancelClick = (event) => {
+    this.setState({ showNewTeamMemberForm: true });
+  };
 
   render() {
     return (
@@ -51,10 +71,25 @@ class TeamMember extends React.PureComponent {
             />
           </div>
           <h2 className="title">{this.props.title}</h2>
-          { this.renderTeamMemberName(this.props.name) }          
+          { 
+            !this.state.showNewTeamMemberForm
+            ?
+            this.renderTeamMemberName(this.props.name) 
+            :
+            ''
+          }
         </header>
-        <div className="body">{this.props.story}</div>
-        <footer style={{ backgroundColor: this.props.favoriteColor }}>
+        <div className="body">        
+        {
+          this.state.showNewTeamMemberForm
+          ?
+          <TeamMemberForm updateTeamMemberColor={ this.updateTeamMemberColor }/>
+          :
+          ''
+        } 
+        {this.props.story}
+        </div>
+        <footer style={{ backgroundColor: this.state.teamMemberColor }}>
           <div className="full-width-flex-box">
             <div className="one-third-flex-box stat">9.0</div>
             <div className="one-third-flex-box stat bordered">9.0</div>

@@ -1,0 +1,24 @@
+.teamMemberForm{
+    margin:20px 0px;
+}
+.teamMemberForm label, .teamMemberForm div.colorPickerContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.teamMemberForm label input, .teamMemberForm label select, .teamMemberForm label textarea, .teamMemberForm div.colorPickerContainer div.colorPickerInput{    
+  flex: 0 0 150px;
+  margin-left: 10px;
+}
+
+/* 
+firstName: 'Brett',
+lastName: 'Hellman',
+title: 'CEO',
+photoUrl:
+  'https://matterapp.com/static/brett_ceo_matter-3d493ed53676c4a47eff2fa7db62b9e7.jpg',
+favoriteColor: '#4F52B1',
+story: */
