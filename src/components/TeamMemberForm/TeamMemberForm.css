@@ -1,17 +1,20 @@
 .teamMemberForm{
-    margin:20px 0px;
-}
-.teamMemberForm label, .teamMemberForm div.colorPickerContainer{
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    font-weight:bold;
-    margin-bottom:10px;
+  margin:20px 0px;
 }
 
-.teamMemberForm label input, .teamMemberForm label select, .teamMemberForm label textarea, .teamMemberForm div.colorPickerContainer div.colorPickerInput{    
-  flex: 0 0 150px;
-  margin-left: 10px;
+.teamMemberForm section{
+  margin-bottom:20px;
+}
+
+.teamMemberForm label{
+  font-weight:bold;
+  display:block;
+  text-align:left;
+}
+
+.teamMemberForm input, .teamMemberForm select, .teamMemberForm textarea, .teamMemberForm div.colorPickerContainer{
+  display:block;
+  width:100%;
 }
 
 /* 

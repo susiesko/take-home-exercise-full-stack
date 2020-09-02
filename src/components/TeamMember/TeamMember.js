@@ -32,7 +32,7 @@ class TeamMember extends React.PureComponent {
     return (
       name === 'Join us!' 
       ? 
-      <button className="newTeamMemberBtn" style={{backgroundColor: this.props.favoriteColor }} onClick={this.handleJoinUsClick}>{name}</button> 
+      <button className="btn" style={{backgroundColor: this.props.favoriteColor, marginTop: '20px' }} onClick={this.handleJoinUsClick}>{name}</button> 
       :
       <h1 className="name">{name}</h1>
     );

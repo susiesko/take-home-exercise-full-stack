@@ -15,23 +15,23 @@ class TeamMemberForm extends React.Component {
   }
 
   render() {    
-    return (
-      <div className="teamMemberForm">
-        <label>
-          First Name:
+    return (      
+      <form name="teamMemberForm" method="post" className="teamMemberForm">
+        <section>
+          <label>First Name:</label>
           <input name="firstName" type="text"></input>
-        </label>
-        <label>
-          Last Name:
+        </section>
+        <section>
+          <label>Last Name:</label>
           <input name="lastName" type="text"></input>
-        </label>
-        <label>
-          Title:
+        </section>
+        <section>
+          <label>Title:</label>
           <input name="title" type="text"></input>
-        </label>
-        <div className="colorPickerContainer">
-          Favorite color:          
-          <div className="colorPickerInput">
+        </section>
+        <section>
+          <label>Favorite color:</label>
+          <div className="colorPickerContainer">  
             <ThemeProvider theme={{src:srcTheme}}>
               <ColorPicker 
                 className="test"
@@ -45,12 +45,13 @@ class TeamMemberForm extends React.Component {
                 />
             </ThemeProvider>
           </div>
-        </div>
-        <label>
-          Story:
+        </section>
+        <section>
+          <label>Story:</label>
           <textarea name="story"/>
-        </label>
-      </div>
+        </section>
+        <button className="btn addTeamMember">Add Team Member</button>
+      </form>
     );
   }
 }
